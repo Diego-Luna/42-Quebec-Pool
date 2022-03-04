@@ -26,18 +26,17 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	length_dest;
-	unsigned int	length_src;
 
 	i = 0;
 	length_dest = ft_str_length(dest);
-	length_src = ft_str_length(src);
-	if (size <= length_dest)
-		return (length_src + size);
-	while (src[i] != '\0' && i < (size -1))
+	if (size < length_dest)
+		return (ft_str_length(src) + size);
+	while (src[i] != '\0' && length_dest < (size - 1))
 	{
-		dest[i + length_dest] = src[i];
+		dest[length_dest] = src[i];
 		i++;
+		length_dest++;
 	}
-	dest[i + length_dest] = '\0';
-	return (length_dest + length_src);
+	dest[length_dest] = '\0';
+	return (length_dest);
 }
