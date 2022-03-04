@@ -21,10 +21,10 @@ char	*ft_strstr(char *str, char *to_find)
 	while (str[i] != '\0')
 	{
 		c = 0;
-		while (str[i + c] == to_find[c] && str[i + c] != '\0')
+		while (str[i + c] == to_find[c])
 		{
 			if (to_find[i + 1] == '\0')
-				return (&str[i]);
+				return (str + counter);
 			c++;
 		}
 		i++;
