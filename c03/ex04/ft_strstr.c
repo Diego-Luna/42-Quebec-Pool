@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluna-lo <marvin@42quebec.com>             +#+  +:+       +#+        */
+/*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 17:57:53 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/03 19:18:41 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/07 09:43:55 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
-	int	c;
+	int	counter;
+	int	index;
 
-	i = 0;
+	counter = 0;
 	if (to_find[0] == '\0')
 		return (str);
-	while (str[i] != '\0')
+	while (str[counter] != '\0')
 	{
-		c = 0;
-		while (str[i + c] == to_find[c])
+		index = 0;
+		while (str[counter + index] == to_find[index])
 		{
-			if (to_find[i + 1] == '\0')
+			if (to_find[index + 1] == '\0')
 				return (str + counter);
-			c++;
+			index++;
 		}
-		i++;
+		counter++;
 	}
 	return (0);
 }
