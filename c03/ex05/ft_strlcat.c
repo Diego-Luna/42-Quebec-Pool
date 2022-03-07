@@ -3,40 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluna-lo <marvin@42quebec.com>             +#+  +:+       +#+        */
+/*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:19:19 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/04 10:01:31 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:32:57 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_str_length(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	length_dest;
+	unsigned int	length_src;
 
 	i = 0;
-	length_dest = ft_str_length(dest);
-	if (size < length_dest)
-		return (ft_str_length(src) + size);
-	while (src[i] != '\0' && length_dest < (size - 1))
-	{
-		dest[length_dest] = src[i];
-		i++;
+	length_dest = 0;
+	length_src = 0;
+	while (dest[length_dest] != '\0')
 		length_dest++;
+	while (src[length_src] != '\0')
+		length_src++;
+	if (size <= length_dest)
+	{
+		return (length_src + size);
 	}
-	dest[length_dest] = '\0';
-	return (length_dest);
+	while (src[i] != '\0' && (length_dest + i) < (size - 1))
+	{
+		dest[length_dest + i] = src[i];
+		i++;
+	}
+	dest[length_dest + i] = '\0';
+	return (length_dest + length_src);
 }
