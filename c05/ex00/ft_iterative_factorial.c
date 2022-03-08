@@ -6,22 +6,23 @@
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 09:13:18 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/08 09:42:28 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/08 12:58:18 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_iterative_factorial(int nb)
 {
-	if (nb <= 0)
-	{
-		return (0);
-	}
-	else if (nb == 1)
-	{
-		return (1);
-	}
+	int	result;
+
+	if (nb > 0)
+		result = nb;
 	else
+		result = 0;
+	nb--;
+	while (nb >= 1)
 	{
-		return (ft_iterative_factorial(nb - 1) * nb);
+		result *= nb;
+		nb--;
 	}
+	return (result);
 }
