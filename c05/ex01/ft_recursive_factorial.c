@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/08 09:13:18 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/08 09:42:28 by dluna-lo         ###   ########.fr       */
+/*   Created: 2022/03/08 09:37:22 by dluna-lo          #+#    #+#             */
+/*   Updated: 2022/03/08 10:33:52 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb)
+
+int ft_recursive_factorial(int nb);
 {
 	if (nb <= 0)
 	{
