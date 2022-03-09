@@ -6,7 +6,7 @@
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 09:13:18 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/08 12:58:18 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:36:07 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@ int	ft_iterative_factorial(int nb)
 {
 	int	result;
 
-	if (nb > 0)
-		result = nb;
-	else
-		result = 0;
+	result = nb;
+	if (nb < 0)
+		return (0);
+	else if (nb == 0)
+		return (1);
 	nb--;
-	while (nb >= 1)
+	while (nb > 1)
 	{
 		result *= nb;
 		nb--;

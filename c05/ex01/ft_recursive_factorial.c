@@ -6,22 +6,23 @@
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 09:37:22 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/08 12:58:44 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/09 16:15:37 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb);
+int	ft_recursive_factorial(int nb)
 {
-	if (nb <= 0)
+	if (nb < 0)
 	{
 		return (0);
 	}
-	else if (nb == 1)
+	if (nb == 0)
 	{
 		return (1);
 	}
-	else
+	if (nb == 1)
 	{
-		return (ft_iterative_factorial(nb - 1) * nb);
+		return (1);
 	}
+	return (ft_recursive_factorial(nb - 1) * nb);
 }

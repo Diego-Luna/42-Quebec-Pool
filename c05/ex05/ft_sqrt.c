@@ -6,23 +6,30 @@
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 09:07:50 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/09 09:47:39 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/09 16:17:42 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt_recursion(int nb, int counter)
-{
-	if (counter * counter == nb)
-	{
-		return (counter);
-	}
-	else if (counter * counter > nb)
-		return (0);
-	else
-		return (ft_sqrt_recursion(nb, counter + 1));
-}
-
 int	ft_sqrt(int nb)
 {
-	return (ft_sqrt_recursion(nb, 1));
+	int	result;
+
+	result = 1;
+	if (nb == 0)
+	{
+		return (0);
+	}
+	while (result * result <= nb)
+	{
+		if (result * result == nb)
+		{
+			return (result);
+		}
+		else if (result >= 46341)
+		{
+			return (0);
+		}
+		result ++;
+	}
+	return (0);
 }

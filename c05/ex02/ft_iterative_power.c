@@ -6,25 +6,21 @@
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 18:12:14 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/08 18:35:21 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/08 19:34:56 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_iterative_power(int nb, int power)
 {
 	int	result;
-	int	i;
 
-	i = 0;
-	result = nb;
+	result = 1;
 	if (power < 0)
 		return (0);
-	if (nb == 0 && power == 0)
-		return (1);
-	while (i < power)
+	while (power > 0)
 	{
 		result *= nb;
-		i ++;
+		power--;
 	}
 	return (result);
 }

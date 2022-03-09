@@ -6,7 +6,7 @@
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:48:24 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/09 12:04:58 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/09 16:08:09 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb < 2)
 		return (0);
-	while (i < (nb / i))
+	while (i <= (nb / i))
 	{
 		if (nb % i == 0)
 			return (0);
