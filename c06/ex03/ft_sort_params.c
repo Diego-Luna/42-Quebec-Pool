@@ -3,114 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dluna-lo <marvin@42quebec.com>             +#+  +:+       +#+        */
+/*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 20:18:27 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/10 10:32:14 by dluna-lo         ###   ########.fr       */
+/*   Created: 2022/03/10 14:33:36 by dluna-lo          #+#    #+#             */
+/*   Updated: 2022/03/16 10:19:51 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
 
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+	{
 		i++;
-	if (s1[i] == s2[i])
+	}
+	return (s1[i] - s2[i]);
+}
+
+int	main(int argc, char **argv)
+{
+	int		i;
+	char	*temp;
+
+	i = 1;
+	if (argc == 1)
 		return (0);
-	else
-		return (s1[i] - s2[i]);
-	return (0);
-}
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	index;
-
-	index = 0;
-	while (src[index] != '\0')
+	while (i != (argc - 1))
 	{
-		dest[index] = src[index];
-		index++;
-	}
-	dest[index] = '\0';
-	return (dest);
-}
-
-void	ft_change_value_a_to_b(char *str1, char *str2)
-{
-	char	tep[50];
-	int i;
-
-	i = 0;
-	while (i < 50)
-	{
-		tep[i] = '0';
+		if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+		{
+			temp = argv[i];
+			argv[i] = argv[i + 1];
+			argv[i + 1] = temp;
+			i = 0;
+		}
 		i++;
 	}
-	
-	ft_strcpy(tep, str1);
-	ft_strcpy(str1, str2);
-	ft_strcpy(str2, tep);
-}
-
-void	ft_print(int arg, char **str)
-{
-	int	i;
-	int	n;
-
-	n = 1;
-	i = 0;
-	if (arg > 1)
+	i = 1;
+	while (i != argc)
 	{
-		while (str[n])
-		{
-			while (str[n][i])
-			{
-				write(1, &str[n][i], 1);
-				i++;
-			}
-			n++;
-			i = 0;
-			write(1, "\n", 1);
-		}
-	}
-}
-
-#include <stdio.h>
-int main(int arg, char **str)
-{
-	int n;
-	int i;
-	int	result;
-
-	n = 1;
-	i = 0;
-
-	if (arg > 2)
-	{
-		while (n < arg)
-		{
-			if (n == 1)
-				result = ft_strcmp(str[n], str[n + 1]);
-			//else
-			//	result = ft_strcmp(str[n], str[n - 1]);
-			
-			if (result != 0 && n == 1)
-			{
-				ft_change_value_a_to_b(str[n + 1], str[n]);
-			}
-			else  if (result < 0)
-			{
-				ft_change_value_a_to_b(str[n - 1], str[n]);
-				n = 1;
-			}
-			n++;
-		}
-		ft_print(arg, str);
-		//printf("input 1 %s", str[1]);
+		ft_putstr(argv[i]);
+		write(1, "\n", 1);
+		i++;
 	}
 }
