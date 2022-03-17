@@ -6,7 +6,7 @@
 /*   By: dluna-lo <dluna-lo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 08:48:11 by dluna-lo          #+#    #+#             */
-/*   Updated: 2022/03/12 11:03:27 by dluna-lo         ###   ########.fr       */
+/*   Updated: 2022/03/12 20:13:02 by dluna-lo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	ft_strcat(char *dest, char *src)
 		dest[long_dest + i] = src[i];
 		i++;
 	}
-	dest[long_dest + i] = '\0';
 	return (*dest);
 }
 
@@ -52,7 +51,11 @@ int	ft_strlogn(int size, char **strs, char *sep)
 		lenght += ft_strln(strs[i]);
 		i++;
 	}
-	lenght += ft_strln(sep);
+	lenght += ((size - 1) * ft_strln(sep));
+	if (size <= 0 || lenght <= 0)
+	{
+		lenght = 1;
+	}
 	return (lenght);
 }
 
@@ -71,7 +74,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	lenght = ft_strlogn(size, strs, sep);
 	result = malloc(lenght * sizeof(char));
 	if (!result)
-		return (0);
+		return (NULL);
 	while (i < size)
 	{
 		ft_strcat(result, strs[i]);
@@ -81,5 +84,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		}
 		i++;
 	}
+	result[lenght] = '\0';
 	return (result);
 }
